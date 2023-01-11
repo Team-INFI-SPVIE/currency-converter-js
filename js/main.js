@@ -4,16 +4,16 @@ const dropList = document.querySelectorAll("form select"),
   getButton = document.querySelector("form button");
 
 for (let i = 0; i < dropList.length; i++) {
-  for (let currency_code in country_list) {
+  for (let currencyCode in countryList) {
     let selected =
       i == 0
-        ? currency_code == "EUR"
+        ? currencyCode == "EUR"
           ? "selected"
           : ""
-        : currency_code == "XOF"
+        : currencyCode == "XOF"
         ? "selected"
         : "";
-    let optionTag = `<option value="${currency_code}" ${selected}>${currency_code}</option>`;
+    let optionTag = `<option value="${currencyCode}" ${selected}>${currencyCode}</option>`;
     dropList[i].insertAdjacentHTML("beforeend", optionTag);
   }
 
@@ -42,6 +42,7 @@ getButton.addEventListener("click", (e) => {
 });
 
 const exchangeIcon = document.querySelector("form .icon");
+
 exchangeIcon.addEventListener("click", () => {
   let tempCode = fromCurrency.value;
   fromCurrency.value = toCurrency.value;
@@ -55,10 +56,12 @@ const getExchangeRate = () => {
   const amount = document.querySelector("form input");
   const exchangeRateTxt = document.querySelector("form .exchange-rate");
   let amountVal = amount.value;
+
   if (amountVal == "" || amountVal == "0") {
     amount.value = "1";
     amountVal = 1;
   }
+
   exchangeRateTxt.innerText = "Loading...";
 
   let myHeaders = new Headers();
