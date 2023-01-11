@@ -23,10 +23,10 @@ for (let i = 0; i < dropList.length; i++) {
 }
 
 const loadFlag = (element) => {
-  for (let code in country_list) {
+  for (let code in countryList) {
     if (code == element.value) {
       let imgTag = element.parentElement.querySelector("img");
-      const countryCode = country_list[code];
+      const countryCode = countryList[code];
       imgTag.src = `https://flagcdn.com/48x36/${countryCode.toLowerCase()}.png`;
     }
   }
