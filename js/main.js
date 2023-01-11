@@ -84,6 +84,6 @@ const getExchangeRate = () => {
       exchangeRateTxt.innerText = `${amount} ${from} = ${resultCurrency} ${to}`;
     })
     .catch(() => {
-      exchangeRateTxt.innerText = "Something went wrong";
+      exchangeRateTxt.innerText = "Une erreur s'est produite...";
     });
 };
